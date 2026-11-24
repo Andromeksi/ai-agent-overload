@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>AI AGENT OVERLOAD — Chaotic Digital Office Arcade</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="game-shell">
+  <div id="canvas-wrap">
+    <canvas id="game" width="960" height="540"></canvas>
+    <div id="scanlines" aria-hidden="true"></div>
+
+    <!-- HUD -->
+    <div id="hud" class="hidden">
+      <div class="hud-left">
+        <div class="hud-item">SCORE <span id="hud-score">0</span></div>
+        <div class="hud-item">COMBO <span id="hud-combo">x1</span></div>
+        <div class="hud-item">WAVE <span id="hud-wave">1</span></div>
+      </div>
+      <div class="hud-center">
+        <div id="hud-modifier" class="hidden"></div>
+        <div id="hud-popup"></div>
+      </div>
+      <div class="hud-right">
+        <div class="hud-item">HIGH <span id="hud-high">0</span></div>
+        <div class="meter"><label>STABILITY</label><div class="bar"><div id="bar-stability" style="width:100%"></div></div><span id="val-stability">100</span></div>
+        <div class="meter"><label>ENERGY</label><div class="bar"><div id="bar-energy" style="width:100%"></div></div><span id="val-energy">100</span></div>
+      </div>
+    </div>
+
+    <!-- Title screen -->
+    <div id="title-screen" class="overlay">
+      <h1>AI AGENT<br><span>OVERLOAD</span></h1>
+      <p class="tagline">An exhausted robot. A chaotic digital office.<br>One very demanding human.</p>
+      <div class="howto">
+        <p><b>MOVE</b> Arrows / WASD / drag &nbsp;•&nbsp; <b>COLLECT</b> task icons for points</p>
+        <p><b>AVOID</b> bugs, spam, impossible requests &amp; exploding errors</p>
+        <p><b>GRAB</b> coffee to restore energy &nbsp;•&nbsp; <b>P</b> pause &nbsp;•&nbsp; <b>R</b> restart</p>
+        <p>Chain tasks without a hit to raise your combo up to x5. Survive to wave 5 — the boss is coming.</p>
+      </div>
+      <p class="diff-label">CHOOSE DIFFICULTY</p>
+      <div class="diff-buttons">
+        <button class="diff-btn" data-level="easy">EASY<br><small>Slower chaos · 120 stability</small></button>
+        <button class="diff-btn selected" data-level="normal">NORMAL<br><small>Standard overload · 100 stability</small></button>
+        <button class="diff-btn" data-level="hard">HARD<br><small>Maximum chaos · 80 stability</small></button>
+      </div>
+      <button id="start-btn" class="big-btn">▶ START SHIFT</button>
+      <p class="hint">Tap / click START, or press Enter. No setup, no sign-up — just survive.</p>
+    </div>
+
+    <!-- Pause overlay -->
+    <div id="pause-screen" class="overlay hidden">
+      <h2>⏸ PAUSED</h2>
+      <p class="tagline">The human is still typing. Take a breath, robot.</p>
+      <button id="resume-btn" class="big-btn">RESUME</button>
+      <button id="restart-btn-pause" class="big-btn secondary">RESTART</button>
+    </div>
+
+    <!-- Game over overlay -->
+    <div id="gameover-screen" class="overlay hidden">
+      <h2>SYSTEM OVERLOAD</h2>
+      <p id="gameover-report" class="tagline"></p>
+      <div id="gameover-stats"></div>
+      <p id="gameover-newhigh" class="newhigh hidden">★ NEW HIGH SCORE! ★</p>
+      <button id="restart-btn-over" class="big-btn">↻ RESTART SHIFT</button>
+      <button id="menu-btn-over" class="big-btn secondary">TITLE SCREEN</button>
+    </div>
+
+    <!-- Touch controls -->
+    <div id="touch-controls">
+      <button id="touch-pause" aria-label="Pause">II</button>
+    </div>
+  </div>
+  <p id="footer">AI AGENT OVERLOAD · HTML/CSS/JS · no backend · high score saved locally</p>
+</div>
+<script src="game.js"></script>
+<script src="audio.js"></script>
+<script src="boss.js"></script>
+<script src="ui.js"></script>
+</body>
+</html>
